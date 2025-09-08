@@ -3,7 +3,7 @@ IPO Gains Prediction - Complete Pipeline
 ========================================
 
 This script demonstrates the complete pipeline for IPO gains prediction using Indian IPO data.
-It includes data processing, exploratory analysis, model training, and evaluation.
+It includes data processing, exploratory analysis, model training and evaluation.
 
 Author: Data Science Team
 Date: 2024
@@ -36,29 +36,29 @@ class IPOPredictionPipeline:
         """
         Run the complete IPO prediction pipeline
         """
-        print("🚀 Starting IPO Gains Prediction Pipeline")
+        print("Starting IPO Gains Prediction Pipeline")
         print("=" * 60)
         
         try:
             # Step 1: Data Processing
-            print("\n📊 STEP 1: DATA PROCESSING")
+            print("\nSTEP 1: DATA PROCESSING")
             print("-" * 40)
             self.processed_df = self.processor.process_data(excel_file_path)
             
             if self.processed_df is None:
-                print("❌ Error: Could not load or process data")
+                print("Error: Could not load or process data")
                 return None
                 
-            print(f"✅ Successfully processed {len(self.processed_df)} IPO records")
+            print(f"Successfully processed {len(self.processed_df)} IPO records")
             
             # Step 2: Exploratory Data Analysis
-            print("\n🔍 STEP 2: EXPLORATORY DATA ANALYSIS")
+            print("\nSTEP 2: EXPLORATORY DATA ANALYSIS")
             print("-" * 40)
             eda_report = self.analyzer.create_comprehensive_report(self.processed_df)
-            print("✅ EDA completed successfully")
+            print("EDA completed successfully")
             
             # Step 3: Model Training
-            print("\n🤖 STEP 3: MODEL TRAINING AND EVALUATION")
+            print("\nSTEP 3: MODEL TRAINING AND EVALUATION")
             print("-" * 40)
             
             # Prepare features
@@ -69,7 +69,7 @@ class IPOPredictionPipeline:
             
             # Hyperparameter tuning for best model
             if best_model_name in ['Random Forest', 'Gradient Boosting']:
-                print(f"\n🔧 Performing hyperparameter tuning for {best_model_name}...")
+                print(f"\nPerforming hyperparameter tuning for {best_model_name}...")
                 tuned_model = self.trainer.hyperparameter_tuning(X_train, y_train, best_model_name)
                 
                 # Evaluate tuned model
@@ -92,13 +92,13 @@ class IPOPredictionPipeline:
             self.trainer.plot_model_performance(y_test, y_pred, residuals, model_name)
             
             # Step 4: Save Model
-            print(f"\n💾 STEP 4: SAVING MODEL")
+            print(f"\nSTEP 4: SAVING MODEL")
             print("-" * 40)
             model_filename = f"ipo_prediction_model_{best_model_name.lower().replace(' ', '_')}.pkl"
             self.trainer.save_model(self.model, model_filename)
             
             # Step 5: Generate Final Report
-            print(f"\n📈 STEP 5: FINAL RESULTS SUMMARY")
+            print(f"\nSTEP 5: FINAL RESULTS SUMMARY")
             print("=" * 60)
             
             final_report = {
@@ -119,19 +119,19 @@ class IPOPredictionPipeline:
             }
             
             self._print_final_report(final_report)
-            print("✅ Pipeline completed successfully!")
+            print("Pipeline completed successfully!")
             
             return final_report
             
         except Exception as e:
-            print(f"❌ Pipeline failed with error: {str(e)}")
+            print(f"Pipeline failed with error: {str(e)}")
             return None
     
     def _print_final_report(self, report):
         """
         Print a formatted final report
         """
-        print("\n🎯 FINAL MODEL PERFORMANCE")
+        print("\nFINAL MODEL PERFORMANCE")
         print("-" * 50)
         print(f"Best Model: {report['model_performance']['best_model']}")
         print(f"R² Score: {report['model_performance']['r2_score']:.4f}")
@@ -139,18 +139,18 @@ class IPOPredictionPipeline:
         print(f"MAE: {report['model_performance']['mae']:.2f}%")
         print(f"Prediction Error: {report['model_performance']['prediction_error']}")
         
-        print(f"\n📊 DATASET INFORMATION")
+        print(f"\nDATASET INFORMATION")
         print("-" * 50)
         print(f"Total IPO Records: {report['dataset_info']['total_records']:,}")
         print(f"Features Used: {report['dataset_info']['features_used']}")
         print(f"Date Range: {report['dataset_info']['date_range']}")
         
-        print(f"\n🔝 TOP 10 MOST IMPORTANT FEATURES")
+        print(f"\nTOP 10 MOST IMPORTANT FEATURES")
         print("-" * 50)
         for i, feature in enumerate(report['top_features'], 1):
             print(f"{i:2d}. {feature}")
         
-        print(f"\n💡 KEY INSIGHTS")
+        print(f"\nKEY INSIGHTS")
         print("-" * 50)
         for insight in report['key_insights'][:5]:  # Show top 5 insights
             print(f"{insight}")
