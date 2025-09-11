@@ -32,7 +32,6 @@ class IPOModelTrainer:
         print("FEATURE PREPARATION FOR MODELING")
         print("="*50)
         
-        # Define feature categories
         feature_categories = {
             'basic': ['issue_size_cr', 'issue_size_log', 'issue_price', 'lot_size', 'pe_ratio'],
             'subscription': ['qib_subscription', 'nii_subscription', 'rii_subscription', 
