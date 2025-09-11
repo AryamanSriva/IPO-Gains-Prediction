@@ -345,7 +345,6 @@ class IPOModelTrainer:
             ax1.set_title('Feature Importance (Tree-based)', fontweight='bold')
             ax1.grid(True, alpha=0.3, axis='x')
         
-        # Permutation importance
         if ax2 is not None:
             top_perm = perm_importance.head(15)
             y_pos = np.arange(len(top_perm))
