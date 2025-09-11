@@ -57,7 +57,6 @@ class IPOModelTrainer:
         X = df[selected_features].copy()
         y = df[target_col].copy()
         
-        # Handle missing values
         X = X.fillna(X.median())
         
         print(f"\nFeature matrix shape: {X.shape}")
