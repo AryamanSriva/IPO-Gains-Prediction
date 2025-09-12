@@ -21,7 +21,7 @@ class IPODataProcessor:
         
         try:
             # Load data from Excel
-            df = pd.read_excel(file_path)
+            df = pd.read_excel(path)
             
             # Clean column names
             df.columns = df.columns.str.strip()
