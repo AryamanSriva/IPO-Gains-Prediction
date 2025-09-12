@@ -20,7 +20,6 @@ class IPODataProcessor:
         print("Loading IPO data from Excel...")
         
         try:
-            # Load data from Excel
             df = pd.read_excel(path)
             
             # Clean column names
