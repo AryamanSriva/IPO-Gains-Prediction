@@ -43,7 +43,6 @@ class IPOModelTrainer:
             'flags': ['is_oversubscribed']
         }
         
-        # Select available features
         selected_features = []
         for category, features in feature_categories.items():
             available = [f for f in features if f in df.columns]
