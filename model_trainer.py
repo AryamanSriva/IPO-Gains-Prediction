@@ -52,7 +52,6 @@ class IPOModelTrainer:
         
         self.feature_names = selected_features
         
-        # Prepare feature matrix and target
         X = df[selected_features].copy()
         y = df[target_col].copy()
         
