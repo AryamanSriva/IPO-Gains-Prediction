@@ -84,7 +84,6 @@ class IPOModelTrainer:
         """
         Evaluate a single model and return metrics
         """
-        # Train the model
         model.fit(X_train, y_train)
         
         # Make predictions
