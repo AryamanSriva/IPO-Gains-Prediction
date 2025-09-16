@@ -105,7 +105,6 @@ class IPOModelTrainer:
             'model': model
         }
         
-        # Cross-validation score
         cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2', n_jobs=-1)
         metrics['cv_r2_mean'] = cv_scores.mean()
         metrics['cv_r2_std'] = cv_scores.std()
