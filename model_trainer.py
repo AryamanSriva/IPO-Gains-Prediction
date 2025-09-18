@@ -86,7 +86,6 @@ class IPOModelTrainer:
         """
         model.fit(X_train, y_train)
         
-        # Make predictions
         y_pred_train = model.predict(X_train)
         y_pred_test = model.predict(X_test)
         
