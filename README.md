@@ -6,7 +6,7 @@ A comprehensive machine learning system to predict IPO listing gains using histo
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.2+-orange.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-1.5+-green.svg)
 
-## Project Overview
+## Overview
 
 This project analyzes **1000+ Indian IPOs** and builds predictive models to forecast listing day performance. The system reveals key insights including the **negative correlation between issue size and listing gains**, helping investors make data-driven decisions.
 
