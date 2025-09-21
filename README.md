@@ -12,12 +12,12 @@ This project analyzes **1000+ Indian IPOs** and builds predictive models to fore
 
 ### Key Features
 
-- ✅ **Comprehensive Data Processing**: Handles real Excel IPO data with automated cleaning and preprocessing
-- ✅ **Advanced Feature Engineering**: Creates 20+ predictive features from raw IPO data
-- ✅ **Multiple ML Models**: Compares Random Forest, Gradient Boosting, and Linear models
-- ✅ **Detailed EDA**: Generates comprehensive exploratory data analysis with visualizations
-- ✅ **Model Interpretability**: Feature importance analysis and SHAP-like explanations
-- ✅ **Production Ready**: Complete pipeline with model saving/loading capabilities
+- **Comprehensive Data Processing**: Handles real Excel IPO data with automated cleaning and preprocessing
+- **Advanced Feature Engineering**: Creates 20+ predictive features from raw IPO data
+- **Multiple ML Models**: Compares Random Forest, Gradient Boosting, and Linear models
+- **Detailed EDA**: Generates comprehensive exploratory data analysis with visualizations
+- **Model Interpretability**: Feature importance analysis and SHAP-like explanations
+- **Production Ready**: Complete pipeline with model saving/loading capabilities
 
 ## 🎯 Model Performance
 
