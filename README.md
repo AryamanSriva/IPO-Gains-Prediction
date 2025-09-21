@@ -19,7 +19,7 @@ This project analyzes **1000+ Indian IPOs** and builds predictive models to fore
 - **Model Interpretability**: Feature importance analysis and SHAP-like explanations
 - **Production Ready**: Complete pipeline with model saving/loading capabilities
 
-## 🎯 Model Performance
+## Model Performance
 
 | Metric | Value |
 |--------|-------|
