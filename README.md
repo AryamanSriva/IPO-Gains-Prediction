@@ -5,7 +5,6 @@ A comprehensive machine learning system to predict IPO listing gains using histo
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.2+-orange.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-1.5+-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## 📊 Project Overview
 
