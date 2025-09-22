@@ -28,9 +28,9 @@ This project analyzes **1000+ Indian IPOs** and builds predictive models to fore
 | **MAE** | ±4.2% |
 | **Cross-Validation R²** | 0.69 ± 0.03 |
 
-## 📈 Key Insights Discovered
+## Key Insights Discovered
 
-Our analysis of 1000+ Indian IPOs revealed several important patterns:
+The analysis of 1000+ Indian IPOs revealed several important patterns:
 
 ### 🔍 Issue Size vs Performance
 - **Strong negative correlation (-0.45)** between issue size and listing gains
