@@ -32,7 +32,7 @@ This project analyzes **1000+ Indian IPOs** and builds predictive models to fore
 
 The analysis of 1000+ Indian IPOs revealed several important patterns:
 
-### 🔍 Issue Size vs Performance
+### Issue Size vs Performance
 - **Strong negative correlation (-0.45)** between issue size and listing gains
 - IPOs < ₹100 crores: Average gain of **28.5%**
 - IPOs > ₹1000 crores: Average gain of **8.2%**
