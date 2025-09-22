@@ -37,7 +37,7 @@ The analysis of 1000+ Indian IPOs revealed several important patterns:
 - IPOs < ₹100 crores: Average gain of **28.5%**
 - IPOs > ₹1000 crores: Average gain of **8.2%**
 
-### 📊 Subscription Impact
+### Subscription Impact
 - **Moderate positive correlation (0.32)** between total subscription and gains
 - Oversubscribed IPOs (>1x): **78%** success rate
 - Highly oversubscribed IPOs (>10x): Average gain of **42.1%**
