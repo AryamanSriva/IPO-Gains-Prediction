@@ -42,7 +42,7 @@ The analysis of 1000+ Indian IPOs revealed several important patterns:
 - Oversubscribed IPOs (>1x): **78%** success rate
 - Highly oversubscribed IPOs (>10x): Average gain of **42.1%**
 
-### 🏢 Sector Performance
+### Sector Performance
 - **Technology**: Best performing sector (avg: +31.2%)
 - **Infrastructure**: Most challenging sector (avg: +12.8%)
 - **Pharmaceuticals**: Most consistent returns (low volatility)
