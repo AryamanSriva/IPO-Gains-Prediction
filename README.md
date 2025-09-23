@@ -47,7 +47,7 @@ The analysis of 1000+ Indian IPOs revealed several important patterns:
 - **Infrastructure**: Most challenging sector (avg: +12.8%)
 - **Pharmaceuticals**: Most consistent returns (low volatility)
 
-### 📅 Timing Matters
+### Timing Matters
 - **Q4 listings**: Highest average gains (+24.3%)
 - **Q2 listings**: Most volatile performance
 - **Year-end effect**: December listings outperform by 15%
