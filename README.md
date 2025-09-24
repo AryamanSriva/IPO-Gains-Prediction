@@ -52,7 +52,7 @@ The analysis of 1000+ Indian IPOs revealed several important patterns:
 - **Q2 listings**: Most volatile performance
 - **Year-end effect**: December listings outperform by 15%
 
-## 🔬 Technical Deep Dive
+## Technical Deep Dive
 
 ### Feature Engineering
 
