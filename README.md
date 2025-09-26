@@ -109,7 +109,7 @@ metrics = {
 
 The system automatically generates:
 
-- 📈 **Distribution Analysis**: Histograms, box plots, Q-Q plots
+- **Distribution Analysis**: Histograms and box plots
 - 🔗 **Correlation Heatmaps**: Feature relationships and multicollinearity
 - 🎯 **Sector Analysis**: Performance by industry and market segment
 - 📅 **Temporal Analysis**: Yearly, quarterly and monthly trends
