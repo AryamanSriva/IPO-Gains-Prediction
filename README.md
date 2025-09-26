@@ -82,7 +82,6 @@ The system compares multiple algorithms:
 1. **Random Forest** (Best performer)
    - Handles non-linear relationships
    - Built-in feature importance
-   - Robust to outliers
 
 2. **Gradient Boosting**
    - Sequential learning
