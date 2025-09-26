@@ -105,14 +105,14 @@ metrics = {
 }
 ```
 
-## 📊 Visualizations Generated
+## Visualizations Generated
 
 The system automatically generates:
 
 - 📈 **Distribution Analysis**: Histograms, box plots, Q-Q plots
 - 🔗 **Correlation Heatmaps**: Feature relationships and multicollinearity
 - 🎯 **Sector Analysis**: Performance by industry and market segment
-- 📅 **Temporal Analysis**: Yearly, quarterly, and monthly trends
+- 📅 **Temporal Analysis**: Yearly, quarterly and monthly trends
 - 🎪 **Model Performance**: Actual vs predicted, residual analysis
 - 🏆 **Feature Importance**: Tree-based and permutation importance
 
