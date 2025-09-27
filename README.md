@@ -111,7 +111,7 @@ The system automatically generates:
 
 - **Distribution Analysis**: Histograms and box plots
 - **Correlation Heatmaps**: Feature relationships and multicollinearity
-- 🎯 **Sector Analysis**: Performance by industry and market segment
+- **Sector Analysis**: Performance by industry and market segment
 - 📅 **Temporal Analysis**: Yearly, quarterly and monthly trends
 - 🎪 **Model Performance**: Actual vs predicted, residual analysis
 - 🏆 **Feature Importance**: Tree-based and permutation importance
