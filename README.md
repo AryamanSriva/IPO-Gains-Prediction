@@ -114,7 +114,7 @@ The system automatically generates:
 - **Sector Analysis**: Performance by industry and market segment
 - **Temporal Analysis**: Yearly, quarterly and monthly trends
 - **Model Performance**: Actual vs predicted, residual analysis
-- 🏆 **Feature Importance**: Tree-based and permutation importance
+- **Feature Importance**: Tree-based and permutation importance
 
 ## 🛠️ Advanced Usage
 
