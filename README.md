@@ -116,7 +116,7 @@ The system automatically generates:
 - **Model Performance**: Actual vs predicted, residual analysis
 - **Feature Importance**: Tree-based and permutation importance
 
-## 🛠️ Advanced Usage
+## Advanced Usage
 
 ### Custom Feature Engineering
 
