@@ -167,7 +167,7 @@ for i, pred in enumerate(predictions):
     print(f"IPO {i+1}: {pred:.2f}% predicted gain")
 ```
 
-## 📚 API Reference
+## API Reference
 
 ### IPODataProcessor
 
