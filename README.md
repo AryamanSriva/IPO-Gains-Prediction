@@ -231,13 +231,6 @@ results = trainer.train_all_models(X, y)
 | Manufacturing | 128 | 16.4% | 69% |
 | Infrastructure | 121 | 12.8% | 64% |
 
-## 🙏 Acknowledgments
-
-- Historical IPO data sources
-- Scikit-learn community for excellent ML tools
-- Indian stock market data providers
-- Open source Python data science ecosystem
-
 ## 📞 Support
 
 Having issues? Please check our [FAQ](FAQ.md) or create an issue in the GitHub repository.
