@@ -231,23 +231,6 @@ results = trainer.train_all_models(X, y)
 | Manufacturing | 128 | 16.4% | 69% |
 | Infrastructure | 121 | 12.8% | 64% |
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Setup
-
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest tests/
-
-# Code formatting
-black ipo_prediction/
-flake8 ipo_prediction/
-```
 
 ## 📄 License
 
