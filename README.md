@@ -208,7 +208,7 @@ results = trainer.train_all_models(X, y)
 - `hyperparameter_tuning()`: Optimize model parameters
 - `save_model()` / `load_model()`: Model persistence
 
-## 📊 Sample Results
+## Key Results
 
 ### Feature Importance (Top 10)
 1. **total_subscription** (0.234) - Overall demand indicator
