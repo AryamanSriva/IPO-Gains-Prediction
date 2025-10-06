@@ -231,10 +231,6 @@ results = trainer.train_all_models(X, y)
 | Manufacturing | 128 | 16.4% | 69% |
 | Infrastructure | 121 | 12.8% | 64% |
 
-## 👥 Authors
-
-- **Data Science Team** - *Initial work* - [YourGitHub](https://github.com/yourusername)
-
 ## 🙏 Acknowledgments
 
 - Historical IPO data sources
