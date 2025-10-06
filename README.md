@@ -242,6 +242,3 @@ For additional support:
 
 ---
 
-⭐ **Star this repository if you find it useful!** ⭐
-
-*Built with ❤️ for the Indian investment community*
