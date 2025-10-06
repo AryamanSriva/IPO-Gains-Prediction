@@ -231,14 +231,3 @@ results = trainer.train_all_models(X, y)
 | Manufacturing | 128 | 16.4% | 69% |
 | Infrastructure | 121 | 12.8% | 64% |
 
-## 📞 Support
-
-Having issues? Please check our [FAQ](FAQ.md) or create an issue in the GitHub repository.
-
-For additional support:
-- 📧 Email: your.email@example.com
-- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/ipo-gains-prediction/discussions)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/yourusername/ipo-gains-prediction/issues)
-
----
-
