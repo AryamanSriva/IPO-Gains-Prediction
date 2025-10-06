@@ -231,11 +231,6 @@ results = trainer.train_all_models(X, y)
 | Manufacturing | 128 | 16.4% | 69% |
 | Infrastructure | 121 | 12.8% | 64% |
 
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👥 Authors
 
 - **Data Science Team** - *Initial work* - [YourGitHub](https://github.com/yourusername)
