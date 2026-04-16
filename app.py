@@ -139,13 +139,39 @@ def predict():
         best_model_name = max(results_metadata.keys(), key=lambda x: results_metadata[x].get('test_r2', 0)) if results_metadata else None
         rmse = results_metadata.get(best_model_name, {}).get('test_rmse', 6.5) if best_model_name else 6.5
             
+        # --- NEW: Sector Benchmark Calculation ---
+        sector_analysis = {
+            'sector_name': sector,
+            'avg_gain': 0,
+            'performance': 'Neutral',
+            'market_avg': 0
+        }
+        if os.path.exists(processed_csv):
+            # Calculate sector benchmark relative to overall market (using recent data)
+            df_full = pd.read_csv(processed_csv)
+            market_avg = df_full['listing_gains'].mean()
+            sector_avg = df_full[df_full['sector'] == sector]['listing_gains'].mean()
+            
+            if pd.isna(sector_avg): sector_avg = market_avg # Fallback if new sector
+            
+            perf = "Market Performer"
+            if sector_avg > market_avg * 1.2: perf = "Outperformer"
+            elif sector_avg < market_avg * 0.8: perf = "Underperformer"
+            
+            sector_analysis.update({
+                'avg_gain': round(sector_avg, 2),
+                'market_avg': round(market_avg, 2),
+                'performance': perf
+            })
+
         return jsonify({
             'success': True,
             'predicted_gain': round(adjusted_prediction, 2),
             'base_ml_prediction': round(prediction, 2),
             'risk_category': risk_category,
             'confidence_interval': [round(adjusted_prediction - rmse, 2), round(adjusted_prediction + rmse, 2)],
-            'market_pulse': market_data
+            'market_pulse': market_data,
+            'sector_analysis': sector_analysis
         })
 
     except ValueError as ve:

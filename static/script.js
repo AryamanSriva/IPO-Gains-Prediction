@@ -145,6 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(()=> resultContainer.scrollIntoView({behavior: "smooth", block: 'nearest'}), 100);
             }
 
+            // Populate Sector Info
+            if (data.sector_analysis) {
+                const sectorRank = document.getElementById('sector-rank');
+                sectorRank.textContent = data.sector_analysis.performance;
+                // Add color classes if needed
+                sectorRank.className = 'metric-val';
+                if (data.sector_analysis.performance === 'Outperformer') sectorRank.style.color = 'var(--success)';
+                if (data.sector_analysis.performance === 'Underperformer') sectorRank.style.color = 'var(--danger)';
+            }
         } catch (error) {
             showToast(error.message);
         } finally {

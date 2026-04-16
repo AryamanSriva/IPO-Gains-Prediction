@@ -412,6 +412,7 @@ input:focus + .input-icon,
 
 .risk-icon { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
 .confidence-icon { background: rgba(59, 130, 246, 0.1); color: var(--primary); }
+.sector-icon { background: rgba(139, 92, 246, 0.1); color: var(--secondary); }
 
 .metric-info {
     display: flex;
@@ -585,6 +586,10 @@ input:focus + .input-icon,
     height: auto;
     border-radius: 8px;
     filter: contrast(1.1);
+}
+
+.full-width-plot {
+    grid-column: 1 / -1;
 }
 
 /* Sentiment Section */

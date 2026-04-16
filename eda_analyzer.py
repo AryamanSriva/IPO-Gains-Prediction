@@ -318,6 +318,40 @@ class IPOExploratoryAnalyzer:
         plt.savefig('static/plots/key_relationships.png', dpi=150, bbox_inches='tight')
         plt.close()
         print("Saved: plots/key_relationships.png")
+
+    def plot_sector_benchmark(self, df):
+        """
+        Create a dedicated Sector Benchmark chart for recent IPOs (2023-2024)
+        """
+        # Filter for recent years if possible
+        recent_df = df[df['listing_year'].isin([2023, 2024])]
+        if recent_df.empty:
+            recent_df = df # Fallback to all data if none found
+
+        sector_stats = recent_df.groupby('sector')['listing_gains'].agg(['mean', 'count']).sort_values('mean', ascending=False)
+        
+        plt.figure(figsize=(10, 8))
+        # Modern glassmorphism-friendly colors
+        colors = plt.cm.viridis(np.linspace(0, 0.8, len(sector_stats)))
+        
+        ax = sns.barplot(x=sector_stats['mean'], y=sector_stats.index, palette='magma')
+        
+        # Style the plot for premium look
+        plt.title('Top Performing Sectors (2023-24)', fontsize=14, fontweight='bold', pad=20)
+        plt.xlabel('Average Listing Gains (%)', fontsize=11)
+        plt.ylabel('Industry Sector', fontsize=11)
+        
+        # Add labels to the end of bars
+        for i, (v, count) in enumerate(zip(sector_stats['mean'], sector_stats['count'])):
+            plt.text(v + 1, i, f'{v:.1f}% (n={count})', va='center', fontsize=9, fontweight='500')
+            
+        plt.grid(axis='x', linestyle='--', alpha=0.3)
+        sns.despine(left=True, bottom=True)
+        
+        plt.tight_layout()
+        plt.savefig('static/plots/sector_benchmark.png', dpi=150, transparent=True)
+        plt.close()
+        print("Saved: plots/sector_benchmark.png")
     
     def generate_insights(self, df):
         """
