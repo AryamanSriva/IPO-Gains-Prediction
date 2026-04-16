@@ -11,6 +11,5 @@ ENV/
 *.xlsx
 *.csv
 static/plots/
-*.pkl
 .vscode/
 .idea/
