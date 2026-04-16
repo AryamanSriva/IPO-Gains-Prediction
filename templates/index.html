@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPO Predictor Pro</title>
+    <!-- Premium Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    
+    <div class="layout-wrapper">
+        <!-- Left Hero Section -->
+        <aside class="hero-section">
+            <div class="hero-content">
+                <div class="badge">
+                    <i data-lucide="sparkles" class="icon-small"></i>
+                    AI-POWERED PREDICTION
+                </div>
+                <h1 class="title">Predict IPO Listing Gains with <span>Precision.</span></h1>
+                <p class="subtitle">Leverage our advanced machine learning models trained on thousands of historical Indian IPOs to make data-driven investment decisions.</p>
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="trending-up"></i></div>
+                        <div class="feature-text">
+                            <h3>High Accuracy</h3>
+                            <p>Trained on Random Forest regression</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i data-lucide="zap"></i></div>
+                        <div class="feature-text">
+                            <h3>Instant Analysis</h3>
+                            <p>Real-time risk assessment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <button id="toggle-insights" class="secondary-btn">
+                        <i data-lucide="line-chart"></i>
+                        View Model Insights
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Form Section -->
+        <main class="form-section">
+            <div class="glass-panel">
+                <div class="panel-header">
+                    <h2>New Prediction</h2>
+                    <p>Enter the IPO details below</p>
+                </div>
+
+                <form id="prediction-form" class="prediction-form">
+                    <div class="input-grid">
+                        <div class="form-group full-width">
+                            <label for="company_name">Company Name</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="building-2" class="input-icon"></i>
+                                <input type="text" id="company_name" name="company_name" placeholder="e.g. TechNova Industries" required autocomplete="off">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="size_of_ipo">Issue Size</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="indian-rupee" class="input-icon"></i>
+                                <input type="number" id="size_of_ipo" name="size_of_ipo" placeholder="In Crores (e.g. 500)" step="any" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pe_ratio">P/E Ratio</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="bar-chart-3" class="input-icon"></i>
+                                <input type="number" id="pe_ratio" name="pe_ratio" placeholder="e.g. 25.5" step="any" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="subscription_status">Total Subscription</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="users" class="input-icon"></i>
+                                <input type="number" id="subscription_status" name="subscription_status" placeholder="Number of times (e.g. 15.2)" step="any" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="cta-button" id="submit-btn">
+                        <span id="btn-text">Generate Forecast</span>
+                        <div id="btn-loader" class="loader hidden"></div>
+                    </button>
+                </form>
+
+                <!-- Result Section -->
+                <div id="result-container" class="result-container hidden">
+                    <div class="result-divider">
+                        <span>Prediction Result</span>
+                    </div>
+                    
+                    <div class="gain-display">
+                        <div class="gain-label">Expected Listing Gain</div>
+                        <div class="gain-value" id="predicted-value">0.00%</div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon risk-icon"><i data-lucide="shield-alert"></i></div>
+                            <div class="metric-info">
+                                <span class="metric-label">Risk Category</span>
+                                <span class="metric-val" id="risk-category">--</span>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon confidence-icon"><i data-lucide="target"></i></div>
+                            <div class="metric-info">
+                                <span class="metric-label">95% Confidence</span>
+                                <span class="metric-val" id="confidence-interval">-- to --</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Market Pulse Section -->
+                    <div class="sentiment-section">
+                        <div class="pulse-header">
+                            <span class="pulse-title"><i data-lucide="activity"></i> Market Pulse</span>
+                            <span id="sentiment-tag" class="sentiment-badge">Neutral</span>
+                        </div>
+                        
+                        <div class="pulse-stats">
+                            <div class="pulse-stat">
+                                <span class="stat-label">GMP Estimate</span>
+                                <span class="stat-value" id="gmp-val">--</span>
+                            </div>
+                            <div class="pulse-stat">
+                                <span class="stat-label">AI Signal</span>
+                                <span class="stat-value" id="ai-signal">--</span>
+                            </div>
+                        </div>
+
+                        <div class="news-feed">
+                            <div class="news-header">Latest Headlines</div>
+                            <div id="news-list" class="news-list">
+                                <!-- News items will be injected here -->
+                                <div class="news-placeholder">Fetching market data...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Insights Section (Hidden by default) -->
+            <div id="insights-section" class="insights-container hidden">
+                <div class="glass-panel full-width-panel">
+                    <div class="panel-header">
+                        <div class="header-with-close">
+                            <h2>Model Insights</h2>
+                            <button id="close-insights" class="close-btn"><i data-lucide="x"></i></button>
+                        </div>
+                        <p>Visualizing the data and model training results</p>
+                    </div>
+                    
+                    <div class="insights-grid">
+                        <div class="insight-plot">
+                            <h3>Feature Importance</h3>
+                            <img src="{{ url_for('static', filename='plots/feature_importance.png') }}" alt="Feature Importance">
+                        </div>
+                        <div class="insight-plot">
+                            <h3>Model Performance</h3>
+                            <img src="{{ url_for('static', filename='plots/model_performance.png') }}" alt="Model Performance">
+                        </div>
+                        <div class="insight-plot">
+                            <h3>Key Relationships</h3>
+                            <img src="{{ url_for('static', filename='plots/key_relationships.png') }}" alt="Key Relationships">
+                        </div>
+                        <div class="insight-plot">
+                            <h3>Correlation Matrix</h3>
+                            <img src="{{ url_for('static', filename='plots/correlation_heatmap.png') }}" alt="Correlation Heatmap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div id="error-toast" class="toast hidden">
+        <i data-lucide="alert-circle"></i>
+        <span id="toast-msg">An error occurred.</span>
+    </div>
+
+    <!-- Initialize icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
