@@ -122,6 +122,12 @@ def predict():
         # Sentiment adjustment
         sentiment_engine = IPOSentimentEngine()
         market_data = sentiment_engine.fetch_market_pulse(company_name)
+        
+        # New: Add direct scraping for Chittorgarh GMP
+        gmp_data = sentiment_engine.fetch_gmp_from_chittorgarh(company_name)
+        if gmp_data:
+            market_data['chittorgarh_gmp'] = gmp_data['gmp']
+            
         adjustment_factor = sentiment_engine.calculate_adjustment_factor(market_data)
         
         adjusted_prediction = prediction * adjustment_factor
