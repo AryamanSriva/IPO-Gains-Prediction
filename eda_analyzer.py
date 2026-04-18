@@ -394,34 +394,34 @@ class IPOExploratoryAnalyzer:
         positive_pct = (gains > 0).mean() * 100
         high_gains_pct = (gains > 50).mean() * 100
         
-        insights.append(f"• OVERALL SUCCESS RATE: {positive_pct:.1f}% of IPOs had positive listing gains")
-        insights.append(f"• HIGH PERFORMANCE RATE: {high_gains_pct:.1f}% of IPOs gained more than 50%")
+        insights.append(f"- OVERALL SUCCESS RATE: {positive_pct:.1f}% of IPOs had positive listing gains")
+        insights.append(f"- HIGH PERFORMANCE RATE: {high_gains_pct:.1f}% of IPOs gained more than 50%")
         
         # Sector insights
         if 'sector' in df.columns:
             sector_performance = df.groupby('sector')['listing_gains'].mean().sort_values(ascending=False)
             best_sector = sector_performance.index[0]
             worst_sector = sector_performance.index[-1]
-            insights.append(f"• BEST SECTOR: {best_sector} with average gains of {sector_performance.iloc[0]:.1f}%")
-            insights.append(f"• CHALLENGING SECTOR: {worst_sector} with average gains of {sector_performance.iloc[-1]:.1f}%")
+            insights.append(f"- BEST SECTOR: {best_sector} with average gains of {sector_performance.iloc[0]:.1f}%")
+            insights.append(f"- CHALLENGING SECTOR: {worst_sector} with average gains of {sector_performance.iloc[-1]:.1f}%")
         
         # Timing insights
         if 'listing_year' in df.columns:
             yearly_performance = df.groupby('listing_year')['listing_gains'].mean()
             best_year = yearly_performance.idxmax()
             worst_year = yearly_performance.idxmin()
-            insights.append(f"• BEST YEAR: {best_year} with average gains of {yearly_performance.loc[best_year]:.1f}%")
-            insights.append(f"• TOUGHEST YEAR: {worst_year} with average gains of {yearly_performance.loc[worst_year]:.1f}%")
+            insights.append(f"- BEST YEAR: {best_year} with average gains of {yearly_performance.loc[best_year]:.1f}%")
+            insights.append(f"- TOUGHEST YEAR: {worst_year} with average gains of {yearly_performance.loc[worst_year]:.1f}%")
         
         # Risk insights
         volatility = gains.std()
         if volatility > 50:
-            insights.append(f"• HIGH VOLATILITY: IPO gains are highly variable (σ={volatility:.1f}%)")
+            insights.append(f"- HIGH VOLATILITY: IPO gains are highly variable (std={volatility:.1f}%)")
             insights.append("  This indicates significant risk in IPO investments")
         elif volatility > 30:
-            insights.append(f"• MODERATE VOLATILITY: IPO gains show moderate variation (σ={volatility:.1f}%)")
+            insights.append(f"- MODERATE VOLATILITY: IPO gains show moderate variation (std={volatility:.1f}%)")
         else:
-            insights.append(f"• LOW VOLATILITY: IPO gains are relatively stable (σ={volatility:.1f}%)")
+            insights.append(f"- LOW VOLATILITY: IPO gains are relatively stable (std={volatility:.1f}%)")
         
         # Print insights
         for insight in insights:

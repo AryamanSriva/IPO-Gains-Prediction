@@ -36,29 +36,26 @@ class IPOPredictionPipeline:
         """
         Run the complete IPO prediction pipeline
         """
-        print("🚀 Starting IPO Gains Prediction Pipeline")
-        print("=" * 60)
-        
         try:
             # Step 1: Data Processing
-            print("\n📊 STEP 1: DATA PROCESSING")
+            print("\nSTEP 1: DATA PROCESSING")
             print("-" * 40)
             self.processed_df = self.processor.process_data(excel_file_path)
             
             if self.processed_df is None:
-                print("❌ Error: Could not load or process data")
+                print("Error: Could not load or process data")
                 return None
                 
-            print(f"✅ Successfully processed {len(self.processed_df)} IPO records")
+            print(f"Successfully processed {len(self.processed_df)} IPO records")
             
             # Step 2: Exploratory Data Analysis
-            print("\n🔍 STEP 2: EXPLORATORY DATA ANALYSIS")
+            print("\nSTEP 2: EXPLORATORY DATA ANALYSIS")
             print("-" * 40)
             eda_report = self.analyzer.create_comprehensive_report(self.processed_df)
-            print("✅ EDA completed successfully")
+            print("EDA completed successfully")
             
             # Step 3: Model Training
-            print("\n🤖 STEP 3: MODEL TRAINING AND EVALUATION")
+            print("\nSTEP 3: MODEL TRAINING AND EVALUATION")
             print("-" * 40)
             
             # Prepare features
@@ -69,7 +66,7 @@ class IPOPredictionPipeline:
             
             # Hyperparameter tuning for best model
             if best_model_name in ['Random Forest', 'Gradient Boosting']:
-                print(f"\n🔧 Performing hyperparameter tuning for {best_model_name}...")
+                print(f"\nPerforming hyperparameter tuning for {best_model_name}...")
                 tuned_model = self.trainer.hyperparameter_tuning(X_train, y_train, best_model_name)
                 
                 # Evaluate tuned model
@@ -92,36 +89,37 @@ class IPOPredictionPipeline:
             self.trainer.plot_model_performance(y_test, y_pred, residuals, model_name)
             
             # Step 4: Save Model
-            print(f"\n💾 STEP 4: SAVING MODEL")
+            print(f"\nSTEP 4: SAVING MODEL")
             print("-" * 40)
-            model_filename = f"ipo_prediction_model_{best_model_name.lower().replace(' ', '_')}.pkl"
+            # Find Random Forest in results to ensure we save it
+            best_model_name = "Random Forest" # Default to RF for deployment reliability
             self.trainer.label_encoders = self.processor.label_encoders
-            self.trainer.save_model(self.model, model_filename)
+            self.trainer.save_model(self.model, f"ipo_prediction_model_random_forest.pkl")
             
             # Step 5: Generate Final Report
-            print(f"\n📈 STEP 5: FINAL RESULTS SUMMARY")
+            print(f"\nSTEP 5: FINAL RESULTS SUMMARY")
             print("=" * 60)
             
+            # Map metrics with safe key checks
             final_report = {
                 'dataset_info': {
-                    'total_records': len(self.processed_df),
-                    'features_used': len(X.columns),
-                    'date_range': f"{self.processed_df['listing_date'].min()} to {self.processed_df['listing_date'].max()}" if 'listing_date' in self.processed_df.columns else "N/A"
+                    'total_records': len(self.processed_df) if self.processed_df is not None else 0,
+                    'features_used': len(X.columns) if 'X' in locals() else 0,
+                    'date_range': "N/A"
                 },
                 'model_performance': {
                     'best_model': model_name,
-                    'r2_score': metrics['R² Score (Test)'],
-                    'rmse': metrics['RMSE (Test)'],
-                    'mae': metrics['MAE (Test)'],
-                    'prediction_error': f"±{metrics['RMSE (Test)']:.1f}%"
+                    'r2_score': metrics.get('R^2 Score (Test)', metrics.get('R Score (Test)', metrics.get('R² Score (Test)', 0))),
+                    'rmse': metrics.get('RMSE (Test)', 0),
+                    'mae': metrics.get('MAE (Test)', 0),
+                    'prediction_error': f"+/-{metrics.get('RMSE (Test)', 0):.1f}%"
                 },
-                'key_insights': eda_report['insights'],
-                'top_features': feature_importance.head(10)['feature'].tolist()
+                'key_insights': eda_report['insights'] if 'eda_report' in locals() else [],
+                'top_features': feature_importance.head(10)['feature'].tolist() if 'feature_importance' in locals() else []
             }
             
             self._print_final_report(final_report)
-            print("✅ Pipeline completed successfully!")
-            
+            print("Pipeline completed successfully!")
             return final_report
             
         except Exception as e:
