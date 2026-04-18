@@ -330,27 +330,32 @@ class IPOExploratoryAnalyzer:
 
         sector_stats = recent_df.groupby('sector')['listing_gains'].agg(['mean', 'count']).sort_values('mean', ascending=False)
         
-        plt.figure(figsize=(10, 8))
-        # Modern glassmorphism-friendly colors
-        colors = plt.cm.viridis(np.linspace(0, 0.8, len(sector_stats)))
+        # Set dark theme for this plot specifically
+        plt.style.use('dark_background')
+        plt.figure(figsize=(10, 8), facecolor='none')
         
         ax = sns.barplot(x=sector_stats['mean'], y=sector_stats.index, palette='magma')
         
         # Style the plot for premium look
-        plt.title('Top Performing Sectors (2023-24)', fontsize=14, fontweight='bold', pad=20)
-        plt.xlabel('Average Listing Gains (%)', fontsize=11)
-        plt.ylabel('Industry Sector', fontsize=11)
+        plt.title('Top Performing Sectors (2023-24)', fontsize=14, fontweight='bold', pad=20, color='white')
+        plt.xlabel('Average Listing Gains (%)', fontsize=11, color='#a1a1aa')
+        plt.ylabel('Industry Sector', fontsize=11, color='#a1a1aa')
         
         # Add labels to the end of bars
         for i, (v, count) in enumerate(zip(sector_stats['mean'], sector_stats['count'])):
-            plt.text(v + 1, i, f'{v:.1f}% (n={count})', va='center', fontsize=9, fontweight='500')
+            plt.text(v + 1, i, f'{v:.1f}% (n={count})', va='center', fontsize=9, fontweight='500', color='white')
             
-        plt.grid(axis='x', linestyle='--', alpha=0.3)
+        plt.grid(axis='x', linestyle='--', alpha=0.1)
         sns.despine(left=True, bottom=True)
+        
+        # Tick parameters for visibility
+        plt.tick_params(colors='#a1a1aa', labelsize=9)
         
         plt.tight_layout()
         plt.savefig('static/plots/sector_benchmark.png', dpi=150, transparent=True)
         plt.close()
+        # Reset to default style for other plots
+        plt.style.use('default')
         print("Saved: plots/sector_benchmark.png")
     
     def generate_insights(self, df):
