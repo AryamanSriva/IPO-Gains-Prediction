@@ -10,6 +10,5 @@ ENV/
 .ipynb_checkpoints/
 *.xlsx
 *.csv
-static/plots/
 .vscode/
 .idea/
